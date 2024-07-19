@@ -1,20 +1,17 @@
 #ifndef CAMPUSMAP_H
 #define CAMPUSMAP_H
 
-#include <list>
 #include <vector>
+#include <unordered_map>
 
-class Graph {
+class CampusMap {
 public:
-    Graph(int vertices);
-    ~Graph();
+    CampusMap();
     void addEdge(int src, int dest, int weight);
     void displayGraph() const;
-    void shortestPath(int src, int dest);
+    void shortestPath(int src, int dest) const;
 private:
-    int vertices;
-    std::list<std::pair<int, int>>* adjList;
-    void printPath(const std::vector<int>& parent, int j) const;
+    std::unordered_map<int, std::vector<std::pair<int, int>>> adjacencyList;
 };
 
 #endif // CAMPUSMAP_H
